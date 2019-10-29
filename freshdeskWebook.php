@@ -28,12 +28,12 @@ function actionNewFreshdeskHooks()
             $input_data = json_encode($input_data);
         }
         $push                     = json_decode($input_data);
-        $param['ticket_id']       = $push->freshdesk_webhook->ticket_id;
-        $param['user_email']      = $push->freshdesk_webhook->ticket_contact_email;
-        $param['created_at']      = time();
-        $param['webhook_content'] = $input_data;
-        $param['ip']              = Yii::$app->request->getUserIP();
-        $ret                      = Yii::$app->db->createCommand()->insert('new_customer_freshdesk', $param)->execute();
+        $params['ticket_id']       = $push->freshdesk_webhook->ticket_id;
+        $params['user_email']      = $push->freshdesk_webhook->ticket_contact_email;
+        $params['created_at']      = time();
+        $params['webhook_content'] = $input_data;
+        $params['ip']              = Yii::$app->request->getUserIP();
+        $ret                      = Yii::$app->db->createCommand()->insert('new_customer_freshdesk', $params)->execute();
         if ($ret) {
             $data['error_code'] = 0;
             $data['message']    = 'Success!';
