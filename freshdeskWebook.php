@@ -27,9 +27,9 @@ function actionNewFreshdeskHooks()
         } else {
             $input_data = json_encode($input_data);
         }
-        $push                = json_decode($input_data);
-        $param['ticket_id']  = $push->freshdesk_webhook->ticket_id;
-        $param['user_email'] = $push->freshdesk_webhook->ticket_contact_email;
+        $push                     = json_decode($input_data);
+        $param['ticket_id']       = $push->freshdesk_webhook->ticket_id;
+        $param['user_email']      = $push->freshdesk_webhook->ticket_contact_email;
         $param['created_at']      = time();
         $param['webhook_content'] = $input_data;
         $param['ip']              = Yii::$app->request->getUserIP();
