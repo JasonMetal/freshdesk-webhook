@@ -2,7 +2,6 @@
 
 /**
  * @Notes  : 获取 新的webhook数据
- * @param  : cid
  * @return :mixed
  * @user   : Metal
  * @time   : 2019/9/11_下午3:23
@@ -12,7 +11,6 @@
 function actionNewFreshdeskHooks()
 {
     header('Access-Control-Allow-Origin: *');
-    $in_data = file_get_contents('php://input', 'rb');
     try {
         Yii::$app->response->format = Response::FORMAT_JSON;
         $request                    = Yii::$app->request;
